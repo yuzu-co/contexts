@@ -9,6 +9,11 @@ Behatch contexts
     :target: https://scrutinizer-ci.com/g/Behatch/contexts/?branch=master
     :alt: Scrutinizer Code Quality
 
+
+.. image:: https://insight.sensiolabs.com/projects/ed08ea06-93c2-4b90-b65b-4364302b5108/mini.png
+    :target: https://insight.sensiolabs.com/projects/ed08ea06-93c2-4b90-b65b-4364302b5108
+    :alt: SensioLabsInsight
+
 Behatch contexts provide most common behat tests.
 
 Installation
