@@ -22,7 +22,7 @@
 
     "autoload": {
         "psr-4": {
-            "Sanpi\\Behatch\\": "src/"
+            "Behatch\\": "src/"
         }
     },
 
