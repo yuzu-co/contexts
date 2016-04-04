@@ -5,6 +5,7 @@ namespace Sanpi\Behatch\Context;
 use Behat\Gherkin\Node\PyStringNode;
 
 use Behat\Gherkin\Node\TableNode;
+use Behat\Mink\Exception\ExpectationException;
 use Sanpi\Behatch\Json\Json;
 use Sanpi\Behatch\Json\JsonSchema;
 use Sanpi\Behatch\Json\JsonInspector;
@@ -270,6 +271,26 @@ class JsonContext extends BaseContext
             $this->getJson(),
             new JsonSchema($schema)
         );
+    }
+
+    /**
+     * @Then the JSON should be invalid according to this schema:
+     */
+    public function theJsonShouldBeInvalidAccordingToThisSchema(PyStringNode $schema)
+    {
+        try {
+            $isValid = $this->inspector->validate(
+                $this->getJson(),
+                new JsonSchema($schema)
+            );
+
+        } catch (\Exception $e) {
+            $isValid = false;
+        }
+
+        if (true === $isValid) {
+            throw new ExpectationException('Expected to receive invalid json, got valid one', $this->getSession());
+        }
     }
 
     /**
