@@ -56,6 +56,10 @@ class JsonContext extends BaseContext
 
         $actual = $this->inspector->evaluate($json, $node);
 
+        if (is_int($actual)) {
+            $text = (int) $text;
+        }
+
         if (is_bool($actual)) {
             $text = ($text === 'true');
         }
