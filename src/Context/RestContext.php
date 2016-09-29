@@ -50,7 +50,9 @@ class RestContext extends BaseContext
                 $files[$row['key']] = rtrim($this->getMinkParameter('files_path'), DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR.substr($row['value'],1);
             }
             else {
-                $parameters[] = sprintf('%s=%s', $row['key'], urlencode($row['value']));
+                if (!($row['value'] === 'false')) {
+                    $parameters[] = sprintf('%s=%s', $row['key'], urlencode($row['value']));
+                }
             }
         }
 
